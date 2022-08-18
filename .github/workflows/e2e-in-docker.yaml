@@ -40,10 +40,4 @@ jobs:
             echo "Waiting for check1 service"
             sleep 5
           done
-          echo Running File...
-          status=$(python run.py > log.txt 2>&1; echo $?)
-          echo ::set-output name=status::$status
-          
-      - name: Check run status
-        if: steps.run.outputs.status != '0'
-        run: exit "${{ steps.run.outputs.status }}"
+
