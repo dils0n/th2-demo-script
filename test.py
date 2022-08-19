@@ -79,7 +79,8 @@ if __name__ == '__main__':
     logging.basicConfig(filename=time.asctime().replace(':', '-') + ' script.log',
                         level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     # Creation of grpc channels and instances of act, check1 and estore stubs.
-    #factory = sf.connect(config_path="./configs/")
+    factory = sf.connect(config_path="./configs/")
+    print(factory)
 
     try:
         start_datetime = datetime.datetime.utcnow()
