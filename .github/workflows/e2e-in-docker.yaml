@@ -40,5 +40,5 @@ jobs:
             echo "Waiting for check1 service"
             sleep 5
           done
-          python3 -u -d run.py
+          python test.py
 
