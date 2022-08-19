@@ -83,7 +83,7 @@ if __name__ == '__main__':
     #factory = sf.connect(config_path="./configs/")
     
     #print(factory)
-    print("test23")
+    print("test43")
     try:
         start_datetime = datetime.datetime.utcnow()
         #scenario(factory)
