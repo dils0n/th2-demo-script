@@ -79,8 +79,8 @@ if __name__ == '__main__':
     logging.basicConfig(filename=time.asctime().replace(':', '-') + ' script.log',
                         level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     # Creation of grpc channels and instances of act, check1 and estore stubs.
-    factory = sf.connect(config_path="./configs/")
-    print(factory)
+    #factory = sf.connect(config_path="./configs/")
+    #print(factory)
 
     try:
         start_datetime = datetime.datetime.utcnow()
@@ -90,6 +90,7 @@ if __name__ == '__main__':
 
         print(F"start datetime: {start_datetime}")
         print(F"finish datetime: {finish_datetime}")
+        
 
         # print(F"Data Services - start")
         # with open('scenarios/data_services/start_datetime.pickle', 'wb') as f:
@@ -107,3 +108,4 @@ if __name__ == '__main__':
     finally:
         print(F"Closing..")
         #factory['factory'].close()
+        print("hello)
