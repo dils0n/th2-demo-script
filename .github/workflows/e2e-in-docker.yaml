@@ -24,11 +24,10 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get install -y libhdf5-dev
-          python -m pip install --upgrade pip
+          python3 -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Run demo script
-        timeout-minutes: 15
         run: |
           export PYTHONUNBUFFERED=1
           until nc -vz localhost 32600
@@ -41,10 +40,5 @@ jobs:
             echo "Waiting for check1 service"
             sleep 5
           done
+          python3 -u -d run.py
 
-          status=$(python run.py > log.txt 2>&1; echo $?)
-          echo ::set-output name=status::$status
-          
-      - name: Check run status
-        if: steps.run.outputs.status != '0'
-        run: exit "${{ steps.run.outputs.status }}"
