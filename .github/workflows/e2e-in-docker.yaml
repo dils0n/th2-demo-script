@@ -28,7 +28,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run demo script
-        timeout_minutes: 5
+        timeout-minutes: 5
         run: |
           export PYTHONUNBUFFERED=1
           until nc -vz localhost 32600
