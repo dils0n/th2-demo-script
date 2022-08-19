@@ -79,6 +79,7 @@ if __name__ == '__main__':
     logging.basicConfig(filename=time.asctime().replace(':', '-') + ' script.log',
                         level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     # Creation of grpc channels and instances of act, check1 and estore stubs.
+    print("test")
     factory = sf.connect(config_path="./configs/")
     
     print(factory)
@@ -109,4 +110,4 @@ if __name__ == '__main__':
     finally:
         print(F"Closing..")
         factory['factory'].close()
-        print("hello)
+
