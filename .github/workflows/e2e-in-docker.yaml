@@ -20,12 +20,9 @@ jobs:
         with:
           python-version: "3.8"
           architecture: x64
+          cache: 'pip'
           
-      - uses: actions/cache@v2
-        with:
-          path: ~/.cache/pip
-          key: ${{ hashFiles('test.py') }}-${{ hashFiles('requirements.txt') }}
-          
+
       - name: Install dependencies
         run: |
           sudo apt-get install -y libhdf5-dev
