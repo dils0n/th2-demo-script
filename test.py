@@ -80,8 +80,9 @@ if __name__ == '__main__':
                         level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     # Creation of grpc channels and instances of act, check1 and estore stubs.
     factory = sf.connect(config_path="./configs/")
+    
     print(factory)
-
+    print("test")
     try:
         start_datetime = datetime.datetime.utcnow()
         scenario(factory)
