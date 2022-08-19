@@ -23,10 +23,8 @@ jobs:
 
       - uses: actions/cache@v3
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('test.py') }}-${{ hashFiles('requirements.txt') }}
           
 
       - name: Install dependencies
