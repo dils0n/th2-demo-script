@@ -86,7 +86,7 @@ if __name__ == '__main__':
     print("test2")
     try:
         start_datetime = datetime.datetime.utcnow()
-        scenario(factory)
+        #scenario(factory)
         time.sleep(10)
         finish_datetime = datetime.datetime.utcnow()
 
