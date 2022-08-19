@@ -24,7 +24,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ hashFiles('dev-requirements.txt') }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('test.py') }}-${{ hashFiles('requirements.txt') }}
           
       - name: Install dependencies
         run: |
