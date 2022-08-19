@@ -20,11 +20,7 @@ jobs:
         with:
           python-version: "3.8"
           architecture: x64
-
-      - uses: actions/cache@v3
-        with:
-          path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles('test.py') }}-${{ hashFiles('requirements.txt') }}
+          cache: 'pip'
           
 
       - name: Install dependencies
