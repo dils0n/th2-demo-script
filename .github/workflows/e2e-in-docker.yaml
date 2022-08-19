@@ -28,8 +28,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run demo script
-        timeout-minutes: 5
+        timeout-minutes: 15
         run: |
+          export PYTHONUNBUFFERED=1
           until nc -vz localhost 32600
           do
             echo "Waiting for rabbitmq service"
@@ -40,10 +41,4 @@ jobs:
             echo "Waiting for check1 service"
             sleep 5
           done
-          echo Running File...
-          status=$(python run.py > log.txt 2>&1; echo $?)
-          echo ::set-output name=status::$status
-          
-      - name: Check run status
-        if: steps.run.outputs.status != '0'
-        run: exit "${{ steps.run.outputs.status }}"
+
