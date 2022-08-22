@@ -43,14 +43,12 @@ jobs:
             echo "Waiting for check1 service"
             sleep 5
           done
-          python run.py
+          python run.py > file.log
   
-      - name: Archive tests logs
+      - name: Uploading logs
+        if: always()
         uses: actions/upload-artifact@v2
-        if: ${{ failure() }}
         with:
-          name: tests-logs-${{ matrix.os }}-py${{ matrix.python-version }}
-          path: |
-            tests/logs
-          retention-days: 7
+          name: logs-test
+          path: "*.log"
 
