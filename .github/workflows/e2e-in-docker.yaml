@@ -28,13 +28,16 @@ jobs:
           sudo apt-get install -y libhdf5-dev
           python3 -m pip install --upgrade pip
           pip install -r requirements.txt
+  
+      - name: curl
+        uses: wei/curl@master
+        with:
+          args: http://localhost:32600
 
       - name: Run demo script
         timeout-minutes: 5
         run: |
           export PYTHONUNBUFFERED=1
-          curl http://localhost:32600
-          curl http://localhost:31179
           until nc -vz localhost 32600
           do
             echo "Waiting for rabbitmq service"
