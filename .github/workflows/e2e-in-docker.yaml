@@ -43,7 +43,7 @@ jobs:
             echo "Waiting for check1 service"
             sleep 5
           done
-          python test.py
+          python run.py
   
       - name: Archive tests logs
         uses: actions/upload-artifact@v2
