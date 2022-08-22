@@ -14,6 +14,7 @@ jobs:
           cd ./ci
           docker stack deploy -c infra.yaml infra
           docker stack deploy -c th2-demo.yaml th2-demo
+          sleep 100
           docker ps
 
       - name: Set up Python
