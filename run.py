@@ -77,7 +77,7 @@ def scenario(factory, parent=None):
 
 if __name__ == '__main__':
     logging.basicConfig(filename=time.asctime().replace(':', '-') + ' script.log',
-                        level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+                        level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     # Creation of grpc channels and instances of act, check1 and estore stubs.
     factory = sf.connect(config_path="./configs/")
 
