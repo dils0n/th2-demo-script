@@ -33,8 +33,8 @@ jobs:
         timeout-minutes: 5
         run: |
           export PYTHONUNBUFFERED=1
-          curl -I http://localhost:32600
-          curl -I http://localhost:31179
+          curl http://localhost:32600
+          curl http://localhost:31179
           until nc -vz localhost 32600
           do
             echo "Waiting for rabbitmq service"
