@@ -14,6 +14,7 @@ jobs:
           cd ./ci
           docker stack deploy -c infra.yaml infra
           docker stack deploy -c th2-demo.yaml th2-demo
+          docker ps
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -21,18 +22,12 @@ jobs:
           python-version: "3.8"
           architecture: x64
           cache: 'pip'
-          
 
       - name: Install dependencies
         run: |
           sudo apt-get install -y libhdf5-dev
           python3 -m pip install --upgrade pip
           pip install -r requirements.txt
-  
-      - name: curl
-        uses: wei/curl@master
-        with:
-          args: http://localhost:32600
 
       - name: Run demo script
         timeout-minutes: 5
