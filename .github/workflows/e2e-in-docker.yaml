@@ -30,6 +30,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run demo script
+        timeout-minutes: 5
         run: |
           export PYTHONUNBUFFERED=1
           until nc -vz localhost 32600
@@ -43,4 +44,13 @@ jobs:
             sleep 5
           done
           python test.py
+  
+      - name: Archive tests logs
+        uses: actions/upload-artifact@v2
+        if: ${{ failure() }}
+        with:
+          name: tests-logs-${{ matrix.os }}-py${{ matrix.python-version }}
+          path: |
+            tests/logs
+          retention-days: 7
 
